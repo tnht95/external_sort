@@ -50,9 +50,8 @@ int inputHandle(const string &inputFileName, long long availableMemory) {
     long long inputSize = inputStream.tellg();
     inputStream.seekg(0, inputStream.beg);
 
-    ofstream outputStream;
     vector<string> data;
-    cout << "File " << inputFileName << " is being read\n";
+    cout << "File " << inputFileName << " with size " << inputSize << " bytes is being read\n";
 
     int outputFilesCount{0};
     long long currentUsedMemory{0};
@@ -150,6 +149,10 @@ void kWayMerge(int totalFiles, const string &outputFileName, long long available
         }
     }
 
+    for (int i = 1; i <= totalFiles; ++i) {
+        inputStream[i].close();
+    }
+
     outputStream.close();
     deleteRedundantOutputFiles(totalFiles);
 }
@@ -169,6 +172,6 @@ int main(int argc, char *argv[]) {
 
     kWayMerge(totalOutputFiles, outputFileName, availableMemory);
     cout << "DONE!\n";
-    cout << "Merging time:  " << float(clock() - begin_time) / CLOCKS_PER_SEC * 1000 << " msec." << endl;
+    cout << "Executing time:  " << float(clock() - begin_time) / CLOCKS_PER_SEC * 1000 << " msec." << endl;
     return 0;
 }
