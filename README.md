@@ -51,16 +51,3 @@ If the system has 1GB of RAM and 9 files, each 500MB:
    ```
    g++ main.cpp -o main -std=c++14 && ./main "input_name" "output_name" memory_limit
    ```
-
-
-## Future Enhancements
-
-| Feature                            | Status          | Notes                                      |
-|------------------------------------|-----------------|--------------------------------------------|
-| Multi-threaded chunk processing    | Planned         | Parallelize chunk sorting for improved performance |
-| Adaptive buffer size               | Planned         | Dynamically adjust based on system memory |
-| Enhanced file compression          | Planned         | Compress intermediate files to reduce disk usage |
-| External memory quicksort          | Planned         | Implement alternative external sorting algorithms |
-| Fault tolerance                    | Planned         | Ensure recovery from interruptions during sorting |
-
-
